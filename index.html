@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guide testeur D-cartes</title>
+<meta name="description" content="Guide des testeurs D-cartes (vague 1) : accès au site de test, inscription, installation sur le téléphone, missions et retours.">
+<!-- Page de test réservée aux correspondants : pas d'indexation par les moteurs de recherche. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#8DC63F">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Baloo+2:wght@600;700;800&display=swap">
+<style>
+  /* Charte ADAL (palette_couleurs.pdf) : vert #8dc63f, violet #9b306d, beige #e3ddbd, bleu #4eadc7
+     (#347485 pour le texte), orange #f7984a, rouge #c15551, gris #828283. */
+  :root {
+    --fond: #faf8f1;
+    --surface: #ffffff;
+    --beige: #e3ddbd;
+    --beige-doux: #f2eee1;
+    --encre: #23251f;
+    --texte-2: #56584f;
+    --ligne: #e3dece;
+    --vert: #8dc63f;
+    --vert-fonce: #4b7016;
+    --vert-pale: #eef6de;
+    --violet: #9b306d;
+    --violet-pale: #f6e8f0;
+    --bleu: #347485;
+    --bleu-pale: #e4f3f7;
+    --orange: #f7984a;
+    --orange-texte: #8f4a10;
+    --orange-pale: #fdeedd;
+    --cadre-tel: #20221c;
+    --ombre: 0 18px 40px -18px rgba(40, 48, 20, .35);
+    --display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+    --corps: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --fond: #161812; --surface: #1f221a; --beige: #3a3a2c; --beige-doux: #24271e;
+      --encre: #efecdf; --texte-2: #b9b6a7; --ligne: #34382b;
+      --vert-fonce: #a9d86a; --vert-pale: #26311a; --violet: #d88bb6; --violet-pale: #33202b;
+      --bleu: #86c9db; --bleu-pale: #1b2c30; --orange-texte: #f7b27a; --orange-pale: #33261a;
+      --cadre-tel: #050604; --ombre: 0 18px 40px -18px rgba(0, 0, 0, .7);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --fond: #161812; --surface: #1f221a; --beige: #3a3a2c; --beige-doux: #24271e;
+    --encre: #efecdf; --texte-2: #b9b6a7; --ligne: #34382b;
+    --vert-fonce: #a9d86a; --vert-pale: #26311a; --violet: #d88bb6; --violet-pale: #33202b;
+    --bleu: #86c9db; --bleu-pale: #1b2c30; --orange-texte: #f7b27a; --orange-pale: #33261a;
+    --cadre-tel: #050604; --ombre: 0 18px 40px -18px rgba(0, 0, 0, .7);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--fond); color: var(--encre);
+    font-family: var(--corps); font-size: 19px; line-height: 1.6;
+    padding-inline: 16px;
+  }
+  .page { max-width: 1060px; margin-inline: auto; padding-block: 0 56px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+  p { margin: 0; }
+  a { color: var(--bleu); text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  :focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 6px; }
+  img { max-width: 100%; display: block; }
+
+  /* En-tête : les deux marques du programme */
+  .entete { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 18px; border-bottom: 1px solid var(--ligne); }
+  .entete .logos { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 12px; padding: 6px 12px; }
+  .entete .logos img { height: 34px; width: auto; }
+  .entete .sep { width: 1px; height: 26px; background: #d9d3bd; }
+  .entete .quoi { margin-left: auto; font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--texte-2); }
+
+  /* Ouverture */
+  .ouverture { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: 44px 28px; }
+  .surtitre { font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--violet); margin-bottom: 12px; }
+  .ouverture h1 { font-size: clamp(2.3rem, 5vw, 3.5rem); font-weight: 800; }
+  .ouverture h1 em { font-style: normal; color: var(--vert-fonce); }
+  .chapo { font-size: 1.12rem; color: var(--texte-2); margin-top: 16px; max-width: 34em; }
+  .ouverture figure { margin: 0; border-radius: 26px; overflow: hidden; box-shadow: var(--ombre); aspect-ratio: 3 / 2; }
+  .ouverture figure img { width: 100%; height: 100%; object-fit: cover; }
+
+  .parcours { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; padding: 0; list-style: none; }
+  .parcours a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--encre); background: var(--surface); border: 2px solid var(--ligne); border-radius: 999px; padding: 8px 16px 8px 8px; font-weight: 700; font-size: 1rem; }
+  .parcours a:hover { border-color: var(--vert); }
+  .parcours b { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--vert); color: #fff; font-family: var(--display); font-size: 1rem; }
+
+  /* Avertissement « site de test » */
+  .avertissement { background: var(--orange-pale); border: 2px solid color-mix(in srgb, var(--orange) 55%, transparent); border-radius: 22px; padding: 26px 28px; margin-block: 26px 10px; }
+  .avertissement h2 { font-size: 1.6rem; color: var(--orange-texte); display: flex; align-items: center; gap: 10px; }
+  .avertissement .trois { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 16px; }
+  .avertissement .trois div { background: var(--surface); border-radius: 16px; padding: 16px 18px; font-size: 1rem; }
+  .avertissement .trois strong { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+  .avertissement .discret { font-size: .95rem; color: var(--texte-2); margin-top: 14px; }
+
+  /* Sections */
+  section { padding-block: 44px 8px; }
+  .titre-etape { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+  .num { flex: 0 0 auto; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 18px; background: var(--vert); color: #fff; font-family: var(--display); font-size: 1.9rem; font-weight: 800; box-shadow: 0 6px 0 -1px #6f9f2b; }
+  .titre-etape .petit { display: block; font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--texte-2); font-family: var(--corps); }
+  h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 800; }
+  .intro { color: var(--texte-2); max-width: 40em; margin-bottom: 22px; }
+
+  .duo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: start; }
+  ol.pas { margin: 0; padding: 0; list-style: none; counter-reset: pas; display: grid; gap: 14px; max-width: 34em; }
+  ol.pas > li { counter-increment: pas; position: relative; padding-left: 48px; }
+  ol.pas > li::before { content: counter(pas); position: absolute; left: 0; top: 1px; width: 32px; height: 32px; border-radius: 50%; background: var(--vert-pale); color: var(--vert-fonce); font-weight: 700; display: grid; place-items: center; font-size: .95rem; }
+  ol.pas ul { margin: 8px 0 0; padding-left: 20px; }
+  .note { margin-top: 18px; padding: 14px 18px; border-radius: 14px; background: var(--bleu-pale); color: var(--encre); font-size: 1rem; max-width: 36em; }
+  .note strong { color: var(--bleu); }
+  .touche { display: inline-block; font-weight: 700; padding: 0 8px; border-radius: 8px; background: var(--beige-doux); border: 1px solid var(--ligne); white-space: nowrap; }
+  .code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .95em; background: var(--vert-pale); color: var(--vert-fonce); padding: 1px 8px; border-radius: 7px; font-weight: 700; }
+
+  /* Téléphone et écran d'ordinateur */
+  .tel { width: clamp(220px, 28vw, 272px); margin: 0; }
+  .tel .coque { background: var(--cadre-tel); border-radius: 36px; padding: 9px; box-shadow: var(--ombre); }
+  .tel img { border-radius: 28px; width: 100%; }
+  .tel figcaption, .ordi figcaption { font-size: .85rem; color: var(--texte-2); text-align: center; margin-top: 10px; }
+  .ordi { width: clamp(260px, 38vw, 380px); margin: 0; }
+  .ordi .ecran { background: var(--cadre-tel); border-radius: 14px 14px 6px 6px; padding: 10px; box-shadow: var(--ombre); }
+  .ordi .ecran img { border-radius: 6px; width: 100%; }
+  .ordi .pied { width: 34%; height: 10px; margin: 0 auto; background: var(--cadre-tel); border-radius: 0 0 10px 10px; opacity: .8; }
+
+  /* Fenêtre « Connexion requise » dessinée */
+  .fenetre { width: min(100%, 340px); background: var(--surface); border: 1px solid var(--ligne); border-radius: 16px; box-shadow: var(--ombre); padding: 20px; font-size: .95rem; }
+  .fenetre .t { font-weight: 700; font-size: 1.05rem; }
+  .fenetre .s { color: var(--texte-2); font-size: .85rem; margin: 2px 0 14px; }
+  .fenetre label { display: block; font-size: .8rem; color: var(--texte-2); margin-bottom: 4px; }
+  .fenetre .champ { border: 2px solid var(--ligne); border-radius: 10px; padding: 8px 12px; margin-bottom: 12px; font-weight: 700; }
+  .fenetre .champ.mdp { letter-spacing: .25em; color: var(--texte-2); }
+  .fenetre .btns { display: flex; justify-content: flex-end; gap: 8px; }
+  .fenetre .btns span { padding: 6px 14px; border-radius: 10px; border: 1px solid var(--ligne); font-weight: 700; font-size: .9rem; }
+  .fenetre .btns span:last-child { background: var(--bleu); border-color: var(--bleu); color: #fff; }
+
+  /* Choix de l'appareil */
+  .choix { display: inline-flex; gap: 4px; padding: 5px; border-radius: 16px; background: var(--beige-doux); border: 1px solid var(--ligne); margin-bottom: 22px; flex-wrap: wrap; }
+  .choix button { font: inherit; font-weight: 700; font-size: 1rem; border: 0; background: transparent; color: var(--texte-2); padding: 10px 18px; border-radius: 12px; cursor: pointer; min-height: 46px; display: inline-flex; align-items: center; gap: 8px; }
+  .choix button[aria-pressed="true"] { background: var(--surface); color: var(--encre); box-shadow: 0 2px 8px rgba(0, 0, 0, .08); }
+  .iphone-non { margin-top: 18px; font-size: .98rem; color: var(--texte-2); max-width: 36em; }
+
+  .icone-dmarche { display: inline-flex; align-items: center; gap: 12px; margin-top: 18px; padding: 10px 16px 10px 10px; border-radius: 18px; background: var(--surface); border: 1px solid var(--ligne); font-size: 1rem; }
+  .icone-dmarche img { width: 52px; height: 52px; border-radius: 13px; }
+
+  /* Missions */
+  .missions { display: grid; gap: 22px; }
+  .mission { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; background: var(--surface); border: 1px solid var(--ligne); border-radius: 24px; padding: 28px; }
+  .mission.sans-image { grid-template-columns: 1fr; }
+  .mission h3 { font-size: 1.55rem; font-weight: 800; margin-bottom: 8px; }
+  .mission .etiquette { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--violet); background: var(--violet-pale); padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .mission.phare { background: linear-gradient(135deg, var(--vert-pale), var(--surface) 60%); border-color: color-mix(in srgb, var(--vert) 45%, transparent); }
+  .mission .deux-tel { display: flex; gap: 14px; }
+  .mission .deux-tel .tel { width: clamp(150px, 18vw, 200px); }
+  .mission p + p { margin-top: 10px; }
+
+  /* Retours */
+  .retours { background: var(--vert-fonce); color: #fff; border-radius: 26px; padding: 34px; margin-top: 44px; }
+  .retours h2 { color: #fff; }
+  .retours .intro { color: rgba(255, 255, 255, .88); margin-top: 10px; }
+  .reflexes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 10px; }
+  .reflexes div { background: rgba(255, 255, 255, .12); border-radius: 18px; padding: 18px; font-size: 1rem; }
+  .reflexes strong { display: block; font-family: var(--display); font-size: 1.25rem; margin-bottom: 4px; }
+  .retours .apres { margin-top: 18px; font-size: .98rem; color: rgba(255, 255, 255, .88); max-width: 44em; }
+  :root[data-theme="dark"] .retours { background: #2c3a19; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .retours { background: #2c3a19; } }
+
+  /* Questions */
+  .questions { display: grid; gap: 10px; max-width: 46em; }
+  details { background: var(--surface); border: 1px solid var(--ligne); border-radius: 16px; padding: 0 20px; }
+  summary { cursor: pointer; font-weight: 700; padding: 16px 0; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--display); font-size: 1.5rem; line-height: 1; color: var(--vert-fonce); }
+  details[open] summary::after { content: "−"; }
+  details p { padding-bottom: 16px; color: var(--texte-2); }
+
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--ligne); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: .9rem; color: var(--texte-2); }
+
+  .insecable { white-space: nowrap; }
+  a.code.lien { text-decoration: underline; text-decoration-thickness: 2px; }
+  a.code.lien:hover { background: var(--vert); color: #fff; }
+  .ouvrir { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; min-height: 54px; padding: 0 24px; border-radius: 14px; background: var(--vert-fonce); color: #fff; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: 0 5px 0 -1px color-mix(in srgb, var(--vert-fonce) 60%, #000); }
+  .ouvrir:hover { filter: brightness(1.08); }
+  :root[data-theme="dark"] .ouvrir { color: #161812; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ouvrir { color: #161812; } }
+  [hidden] { display: none !important; }
+
+  @media (max-width: 820px) {
+    body { font-size: 18px; }
+    .ouverture { grid-template-columns: 1fr; gap: 26px; padding-top: 30px; }
+    .duo, .mission { grid-template-columns: 1fr; gap: 24px; }
+    .duo > figure, .duo > .fenetre, .mission > figure, .mission .deux-tel { justify-self: center; }
+    .avertissement .trois, .reflexes { grid-template-columns: 1fr; }
+    .entete .quoi { margin-left: 0; width: 100%; }
+    .retours, .mission, .avertissement { padding: 22px; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .parcours a, .choix button { transition: border-color .15s, background .15s; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="entete">
+    <div class="logos">
+      <img src="img/dmarche-banniere.webp" alt="D-marche" width="146" height="34">
+      <span class="sep" aria-hidden="true"></span>
+      <img src="img/dcartes-logo.webp" alt="D-cartes" width="118" height="34">
+    </div>
+    <span class="quoi">Guide du testeur · vague 1</span>
+  </header>
+
+  <div class="ouverture">
+    <div>
+      <p class="surtitre">Test terrain D-cartes</p>
+      <h1>Merci de tester <em class="insecable">D-cartes</em> avec nous</h1>
+      <p class="chapo">D-cartes permet de cartographier et de partager les balades du programme D-marche. Vous faites partie des premiers correspondants à l'essayer : utilisez-le comme vous le feriez vraiment, et dites-nous ce qui vous a aidé, gêné ou surpris. Un bouton que vous ne trouvez pas est déjà un vrai résultat de test.</p>
+      <ul class="parcours" aria-label="Les étapes du guide">
+        <li><a href="#site"><b>1</b>Ouvrir le site</a></li>
+        <li><a href="#compte"><b>2</b>Créer votre compte</a></li>
+        <li><a href="#telephone"><b>3</b>L'installer sur le téléphone</a></li>
+      </ul>
+    </div>
+    <figure><img src="img/tuile-creer.webp" alt="Une carte de balade avec son parcours et ses points d'intérêt"></figure>
+  </div>
+
+  <div class="avertissement" role="note">
+    <h2><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Vous êtes sur un site de test</h2>
+    <div class="trois">
+      <div><strong>Rien n'est conservé</strong>Les balades, comptes et messages créés pendant le test ne seront pas repris sur le vrai site D-marche.</div>
+      <div><strong>Des erreurs sont normales</strong>Une page qui se bloque ou un chiffre faux n'est pas de votre faute : c'est justement ce que nous cherchons.</div>
+      <div><strong>Un mot de passe commun</strong>En plus de votre compte, le site est protégé par un mot de passe partagé entre testeurs.</div>
+    </div>
+    <p class="discret">Merci de ne pas diffuser l'adresse ni le mot de passe du site de test en dehors du groupe de testeurs.</p>
+  </div>
+
+  <!-- Étape 1 -->
+  <section id="site">
+    <div class="titre-etape"><span class="num" aria-hidden="true">1</span><h2><span class="petit">Étape 1</span>Ouvrir le site de test</h2></div>
+    <div class="duo">
+      <div>
+        <ol class="pas">
+          <li>Sur votre téléphone ou votre ordinateur, ouvrez votre navigateur habituel (Chrome, Safari, Edge…).</li>
+          <li>Touchez l'adresse <a class="code lien" href="https://recette.dmarche.org" target="_blank" rel="noopener">recette.dmarche.org</a>, ou tapez-la dans la barre du haut du navigateur.</li>
+          <li>Une petite fenêtre <strong>« Connexion requise »</strong> s'ouvre. Ce n'est pas encore votre compte : c'est la protection du site de test.
+            <ul>
+              <li>Nom d'utilisateur : <span class="code">dmarche</span></li>
+              <li>Mot de passe : celui que Frédérick vous a transmis par message séparé.</li>
+            </ul>
+          </li>
+          <li>Validez. La page d'accueil D-marche s'affiche, avec le D vert en haut.</li>
+        </ol>
+        <a class="ouvrir" href="https://recette.dmarche.org" target="_blank" rel="noopener">Ouvrir le site de test<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <p class="note"><strong>Bon à savoir :</strong> cette fenêtre peut revenir de temps en temps, par exemple après avoir fermé le navigateur. Il suffit de ressaisir les mêmes informations.</p>
+      </div>
+      <div class="fenetre" aria-label="Illustration de la fenêtre Connexion requise">
+        <p class="t">Connexion requise</p>
+        <p class="s">https://recette.dmarche.org</p>
+        <label>Nom d'utilisateur</label>
+        <div class="champ">dmarche</div>
+        <label>Mot de passe</label>
+        <div class="champ mdp">••••••••</div>
+        <div class="btns"><span>Annuler</span><span>Se connecter</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Étape 2 -->
+  <section id="compte">
+    <div class="titre-etape"><span class="num" aria-hidden="true">2</span><h2><span class="petit">Étape 2</span>Créer votre compte</h2></div>
+    <p class="intro">Pour créer votre compte, le site lit votre <strong>podomètre D-marche</strong>. Préparez-le, ainsi que le <strong>code programme</strong> que vous a donné Frédérick. Vous pouvez vous inscrire au choix sur un ordinateur ou sur un téléphone Android.</p>
+    <div class="choix" role="group" aria-label="Appareil utilisé pour l'inscription">
+      <button type="button" id="compte-ordi" aria-pressed="true" data-panneau="p-ordi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>Sur un ordinateur</button>
+      <button type="button" id="compte-android" aria-pressed="false" data-panneau="p-android"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>Sur un téléphone Android</button>
+    </div>
+
+    <div class="duo" id="p-ordi">
+      <div>
+        <p style="margin-bottom:16px">Avec le <strong>câble USB</strong> du podomètre, dans <strong>Chrome ou Edge</strong> : Safari et Firefox ne savent pas lire le podomètre.</p>
+        <ol class="pas">
+          <li>Sur la page d'accueil du site de test, saisissez votre adresse e-mail, puis cliquez sur <span class="touche">Continuer</span>. Le site vous propose de créer un compte.</li>
+          <li>Branchez le podomètre, puis cliquez sur <span class="touche">Transférer mes données</span>. Choisissez le podomètre dans la fenêtre qui s'ouvre et patientez environ 5 secondes : le message « Données transférées » confirme la lecture.</li>
+          <li>Remplissez vos informations : prénom, nom, adresse e-mail, un mot de passe d'au moins 8 caractères et le code programme. La date de naissance et le sexe sont facultatifs.</li>
+          <li>Cliquez sur <span class="touche">Créer mon compte</span>. Vous arrivez sur votre espace, avec « Bonjour » et votre prénom.</li>
+        </ol>
+      </div>
+      <figure class="ordi">
+        <div class="ecran"><img src="img/03-inscription-ordinateur.webp" alt="La page Créer un compte sur ordinateur, avec le bouton Transférer mes données" loading="lazy"></div>
+        <div class="pied" aria-hidden="true"></div>
+        <figcaption>La page d'inscription sur ordinateur</figcaption>
+      </figure>
+    </div>
+
+    <div class="duo" id="p-android" hidden>
+      <div>
+        <p style="margin-bottom:16px">Avec un <strong>câble USB-OTG</strong> : un petit adaptateur qui permet de brancher le podomètre sur la prise du téléphone.</p>
+        <ol class="pas">
+          <li>Installez d'abord l'application gratuite <strong>« D-marche »</strong> depuis le Play Store. Elle ne sert qu'à lire le podomètre.</li>
+          <li>Dans Chrome, sur la page d'accueil du site de test, saisissez votre adresse e-mail puis touchez <span class="touche">Continuer</span>.</li>
+          <li>Branchez le podomètre au téléphone, puis touchez <span class="touche">Transférer mes données</span>. L'application D-marche s'ouvre et lit le podomètre ; acceptez si le téléphone demande l'accès à l'appareil USB.</li>
+          <li>Vous revenez automatiquement sur le formulaire : remplissez vos informations, puis touchez <span class="touche">Créer mon compte</span>.</li>
+        </ol>
+      </div>
+      <figure class="tel">
+        <div class="coque"><img src="img/02-inscription-android.webp" alt="La page Créer un compte sur un téléphone Android, avec la consigne du câble USB-OTG" loading="lazy"></div>
+        <figcaption>L'inscription sur un téléphone Android</figcaption>
+      </figure>
+    </div>
+
+    <p class="iphone-non"><strong>Et sur iPhone ?</strong> L'inscription n'y est pas possible : Apple ne permet pas de lire le podomètre. Une fois votre compte créé sur un ordinateur ou un Android, vous pourrez en revanche vous connecter depuis un iPhone, avec votre adresse e-mail et votre mot de passe.</p>
+  </section>
+
+  <!-- Étape 3 -->
+  <section id="telephone">
+    <div class="titre-etape"><span class="num" aria-hidden="true">3</span><h2><span class="petit">Étape 3</span>Mettre <span class="insecable">D-marche</span> sur l'écran d'accueil</h2></div>
+    <div class="duo">
+      <div>
+        <p class="intro" style="margin-bottom:18px">Pour retrouver D-marche d'un seul geste, comme une application, ajoutez-le à l'écran d'accueil de votre téléphone. Une fois connecté, touchez le bouton vert <span class="touche">Ajouter à l'écran d'accueil</span>, juste sous « Bonjour ».</p>
+        <div class="choix" role="group" aria-label="Type de téléphone">
+          <button type="button" id="tel-iphone" aria-pressed="true" data-panneau="p-iphone">iPhone ou iPad</button>
+          <button type="button" id="tel-android" aria-pressed="false" data-panneau="p-tel-android">Android</button>
+        </div>
+        <div id="p-iphone">
+          <p style="margin-bottom:14px">Apple n'autorise pas l'installation en un clic : le bouton affiche les trois gestes à faire dans Safari.</p>
+          <ol class="pas">
+            <li>Touchez le bouton <strong>Partager</strong> : un carré avec une flèche vers le haut.</li>
+            <li>Faites défiler, puis touchez <span class="touche">Sur l'écran d'accueil</span>.</li>
+            <li>Touchez <span class="touche">Ajouter</span>, en haut à droite.</li>
+          </ol>
+        </div>
+        <div id="p-tel-android" hidden>
+          <p style="margin-bottom:14px">Une fenêtre s'ouvre : touchez <span class="touche">Installer</span> ou <span class="touche">Ajouter</span>. Si rien ne s'ouvre, le bouton affiche les gestes à faire :</p>
+          <ol class="pas">
+            <li>Touchez le menu <strong>⋮</strong> en haut à droite de Chrome.</li>
+            <li>Touchez <span class="touche">Ajouter à l'écran d'accueil</span> ou <span class="touche">Installer</span>.</li>
+            <li>Confirmez avec <span class="touche">Ajouter</span>.</li>
+          </ol>
+        </div>
+        <div class="icone-dmarche"><img src="img/dmarche-icone.webp" alt="" width="52" height="52"><span>Cette icône apparaît ensuite parmi vos applications.</span></div>
+        <p class="note"><strong>Sur le site de test,</strong> l'icône peut vous redemander le mot de passe commun de l'étape 1 à l'ouverture.</p>
+      </div>
+      <figure class="tel" id="fig-install">
+        <div class="coque"><img id="img-install" src="img/07-installer-iphone.webp" alt="La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un iPhone" loading="lazy"></div>
+        <figcaption id="cap-install">La fenêtre d'aide sur iPhone</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Missions -->
+  <section id="missions">
+    <div class="titre-etape"><h2><span class="petit">Et maintenant</span>Ce que nous vous demandons de tester</h2></div>
+    <p class="intro">Quatre missions, à faire dans l'ordre qui vous arrange. Pour chacune, notez ce qui a été facile et ce qui vous a fait hésiter.</p>
+    <div class="missions">
+      <article class="mission">
+        <div>
+          <span class="etiquette">Mission 1</span>
+          <h3>Cartographier une vraie balade</h3>
+          <p>Depuis l'accueil, touchez la tuile <span class="touche">Créer une balade</span> : l'application D-cartes s'ouvre. Touchez le bouton rond <span class="touche">Créer</span> en bas de l'écran, indiquez le point de départ, puis <span class="touche">Créer &amp; démarrer le repérage</span>.</p>
+          <p>Marchez votre parcours : ajoutez une <strong>Étape</strong> à chaque changement de direction, et un <strong>Point d'intérêt</strong> (banc, point de vue, danger…) quand quelque chose mérite d'être signalé, avec une photo si possible.</p>
+        </div>
+        <div class="deux-tel">
+          <figure class="tel"><div class="coque"><img src="img/08-app-tableau.webp" alt="Le tableau de bord de l'application D-cartes, avec le bouton Créer en bas" loading="lazy"></div><figcaption>Le tableau de bord</figcaption></figure>
+          <figure class="tel"><div class="coque"><img src="img/10-app-nouvelle-balade.webp" alt="Le premier écran de création d'une balade : le point de départ" loading="lazy"></div><figcaption>Le point de départ</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="mission sans-image">
+        <div>
+          <span class="etiquette">Mission 2</span>
+          <h3>Finaliser et relire</h3>
+          <p>À la fin de la marche, touchez <span class="touche">Finaliser la balade</span>. Relisez les textes, corrigez un point ou le tracé si besoin, puis téléchargez la <strong>fiche PDF</strong> et regardez-la, idéalement imprimée. Terminez par <span class="touche">Soumettre au modérateur</span>.</p>
+        </div>
+      </article>
+
+      <article class="mission phare">
+        <div>
+          <span class="etiquette">Mission 3 · la plus précieuse</span>
+          <h3>Marcher sans réseau</h3>
+          <p>Avant de partir, ouvrez l'onglet <span class="touche">Hors ligne</span> en bas de l'application et touchez <strong>« Télécharger une zone »</strong> pour garder la carte du lieu, en Wi-Fi de préférence.</p>
+          <p>Sur place, mettez le téléphone en <strong>mode avion</strong> et créez votre balade avec le seul GPS. Ce test ne peut se faire qu'en marchant : c'est lui qui nous apprend le plus.</p>
+        </div>
+        <figure class="tel"><div class="coque"><img src="img/09-app-hors-ligne.webp" alt="L'écran Cartes hors ligne, avec la carte et le bouton Télécharger une zone" loading="lazy"></div><figcaption>Cartes hors ligne</figcaption></figure>
+      </article>
+
+      <article class="mission sans-image">
+        <div>
+          <span class="etiquette">Mission 4</span>
+          <h3>Faire le tour du reste</h3>
+          <p>Explorez librement : l'annuaire des balades, Ma D-marche, les challenges, votre profil. Tout ce qui vous semble peu clair nous intéresse.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Retours -->
+  <div class="retours" id="retours">
+    <h2>Vos retours, dans le groupe WhatsApp</h2>
+    <p class="intro">Tous les retours passent par le groupe WhatsApp des testeurs D-cartes, dont vous faites déjà partie. Trois réflexes rendent un retour vraiment utile :</p>
+    <div class="reflexes">
+      <div><strong>Une capture d'écran</strong>De ce que vous voyez. Sur la plupart des téléphones : bouton de volume bas et bouton de mise en veille en même temps.</div>
+      <div><strong>Ce que vous vouliez faire</strong>Par exemple « je voulais ajouter une photo à mon banc ». C'est souvent plus utile que la description du problème.</div>
+      <div><strong>Un message par sujet</strong>Pour que chaque retour puisse être suivi et traité séparément.</div>
+    </div>
+    <p class="apres">Nous lisons tout, mais nous ne corrigerons pas tout de suite : chaque changement est d'abord validé par l'équipe D-marche, et les sujets importants sont discutés en comité de pilotage.</p>
+  </div>
+
+  <!-- Questions -->
+  <section id="souci">
+    <div class="titre-etape"><h2><span class="petit">En cas de souci</span>Les questions fréquentes</h2></div>
+    <div class="questions">
+      <details><summary>La fenêtre « Connexion requise » revient</summary><p>C'est la protection du site de test : ressaisissez <span class="code">dmarche</span> et le mot de passe commun.</p></details>
+      <details><summary>J'ai oublié mon mot de passe personnel</summary><p>Sur la page de connexion, touchez « Mot de passe oublié ? » : un lien vous est envoyé par e-mail.</p></details>
+      <details><summary>« Transférer mes données » ne trouve pas le podomètre</summary><p>Sur ordinateur, utilisez Chrome ou Edge, débranchez puis rebranchez le podomètre et réessayez. Sur Android, vérifiez que l'application D-marche est installée et que le câble USB-OTG est bien enfoncé.</p></details>
+      <details><summary>Ma position n'apparaît pas, ou le tracé est décalé</summary><p>Acceptez la demande d'accès à la position quand le téléphone la pose, et marchez quelques instants à découvert : le GPS est moins précis entre des immeubles ou sous les arbres. Signalez-le quand même dans le groupe, avec le lieu.</p></details>
+      <details><summary>Une page reste bloquée</summary><p>Fermez-la, rouvrez le site, puis dites-nous ce que vous faisiez juste avant.</p></details>
+      <details><summary>Une autre question ?</summary><p>Écrivez dans le groupe WhatsApp : Frédérick y répond.</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <span>Programme D-marche® · ADAL — site de test D-cartes</span>
+    <span>Votre contact : Frédérick, dans le groupe WhatsApp des testeurs</span>
+  </footer>
+</div>
+
+<script>
+  // Sélecteurs d'appareil : un seul panneau visible par groupe ; le choix « iPhone / Android »
+  // change aussi la capture d'écran de l'étape 3.
+  const CAPTURES = {
+    "p-iphone": ["img/07-installer-iphone.webp", "La fenêtre d'aide sur iPhone", "La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un iPhone"],
+    "p-tel-android": ["img/06-installer-android.webp", "La fenêtre d'aide sur Android", "La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un téléphone Android"],
+  };
+  document.querySelectorAll(".choix").forEach((groupe) => {
+    const boutons = [...groupe.querySelectorAll("button")];
+    boutons.forEach((b) => b.addEventListener("click", () => {
+      boutons.forEach((x) => {
+        const actif = x === b;
+        x.setAttribute("aria-pressed", String(actif));
+        const p = document.getElementById(x.dataset.panneau);
+        if (p) p.hidden = !actif;
+      });
+      const c = CAPTURES[b.dataset.panneau];
+      if (c) {
+        const img = document.getElementById("img-install");
+        img.src = c[0]; img.alt = c[2];
+        document.getElementById("cap-install").textContent = c[1];
+      }
+    }));
+  });
+</script>
+
+</body>
+</html>
