@@ -125,6 +125,8 @@
   .navs .ko::before { content: "✗ "; color: var(--orange-texte); font-weight: 800; }
   .note { margin-top: 18px; padding: 14px 18px; border-radius: 14px; background: var(--bleu-pale); color: var(--encre); font-size: 1rem; max-width: 36em; }
   .note strong { color: var(--bleu); }
+  .ico { display: inline-block; width: 1.15em; height: 1.15em; vertical-align: -0.2em; margin: 0 .1em; }
+  .touche .ico { width: 1em; height: 1em; vertical-align: -0.12em; }
   .touche { display: inline-block; font-weight: 700; padding: 0 8px; border-radius: 8px; background: var(--beige-doux); border: 1px solid var(--ligne); white-space: nowrap; }
   .code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .95em; background: var(--vert-pale); color: var(--vert-fonce); padding: 1px 8px; border-radius: 7px; font-weight: 700; }
 
@@ -364,10 +366,10 @@
           <h3>Accepter quand la plateforme demande votre position</h3>
           <p>Au démarrage d'un repérage, le navigateur affiche une question du type « recette.dmarche.org souhaite connaître votre position ». Répondez <span class="touche">Autoriser</span>.</p>
           <div id="gps-iphone">
-            <p class="chemin"><strong>Si vous avez refusé par erreur :</strong> Réglages → Safari → Position → <em>Demander</em> ou <em>Autoriser</em>, puis rechargez la page.</p>
+            <p class="chemin"><strong>Si vous avez refusé par erreur :</strong> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Réglages"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Réglages → Safari → <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Localisation"><path d="M3 11 21 3l-8 18-2-8-8-2z"/></svg> Position → <em>Demander</em> ou <em>Autoriser</em>, puis rechargez la page.</p>
           </div>
           <div id="gps-android" hidden>
-            <p class="chemin"><strong>Si vous avez refusé par erreur :</strong> touchez le cadenas ou le ⓘ à gauche de l'adresse → Autorisations → Position → <em>Autoriser</em>, puis rechargez la page.</p>
+            <p class="chemin"><strong>Si vous avez refusé par erreur :</strong> touchez le cadenas <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône cadenas"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> ou le <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône information"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> à gauche de l'adresse → Autorisations → Position → <em>Autoriser</em>, puis rechargez la page.</p>
           </div>
           <p class="sinon"><strong>Sinon :</strong> D-cartes affiche « Localisation refusée ». La carte ne vous suit pas et <strong>aucun tracé n'est enregistré</strong>.</p>
         </div>
@@ -379,10 +381,10 @@
           <h3>Activer la position « précise »</h3>
           <p>Les téléphones récents peuvent ne donner qu'une position approximative. Pour tracer un chemin, il faut la position précise.</p>
           <div data-gps="iphone">
-            <p class="chemin">Réglages → Confidentialité et sécurité → Service de localisation → <em>activé</em>. Dans la même liste : Safari → <em>Lorsque l'app est active</em>, et activer <em>Position exacte</em>.</p>
+            <p class="chemin"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Réglages"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Réglages → Confidentialité et sécurité → <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Localisation"><path d="M3 11 21 3l-8 18-2-8-8-2z"/></svg> Service de localisation → <em>activé</em>. Dans la même liste : Safari → <em>Lorsque l'app est active</em>, et activer <em>Position exacte</em>.</p>
           </div>
           <div data-gps="android" hidden>
-            <p class="chemin">Réglages → Applications → Chrome → Autorisations → Position → activer <em>Utiliser la position exacte</em>. Puis Réglages → Localisation → Services de localisation → <em>Précision de la localisation Google</em> → activé.</p>
+            <p class="chemin"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Réglages"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Réglages → Applications → Chrome → Autorisations → Position → activer <em>Utiliser la position exacte</em>. Puis <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Réglages"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Réglages → <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Localisation"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Localisation → Services de localisation → <em>Précision de la localisation Google</em> → activé.</p>
           </div>
           <p class="sinon"><strong>Sinon :</strong> la position peut être fausse de plusieurs centaines de mètres. D-cartes ne garde que les points précis à moins de 50 m près : <strong>le tracé ne démarre pas</strong>, et le message « Position approximative » s'affiche.</p>
         </div>
@@ -392,7 +394,7 @@
         <p class="reglage__num">3</p>
         <div class="reglage__corps">
           <h3>Laisser la localisation du téléphone allumée</h3>
-          <p>C'est l'interrupteur général « Localisation » (ou « Service de localisation »), dans le volet de réglages rapides ou dans les Réglages.</p>
+          <p>C'est l'interrupteur général « Localisation » <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Localisation"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> (ou « Service de localisation » <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Localisation"><path d="M3 11 21 3l-8 18-2-8-8-2z"/></svg> sur iPhone), dans le volet de réglages rapides ou dans les Réglages.</p>
           <p class="sinon"><strong>Sinon :</strong> aucun site ni aucune application ne reçoit de position. D-cartes affiche « Aucune position GPS » au bout de quelques secondes.</p>
         </div>
       </article>
@@ -421,16 +423,16 @@
         <div id="p-iphone">
           <p style="margin-bottom:14px">Apple n'autorise pas l'installation en un clic : le bouton affiche les trois gestes à faire dans Safari.</p>
           <ol class="pas">
-            <li>Touchez le bouton <strong>Partager</strong> : un carré avec une flèche vers le haut.</li>
-            <li>Faites défiler, puis touchez <span class="touche">Sur l'écran d'accueil</span>.</li>
+            <li>Touchez le bouton <strong>Partager</strong> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Partager"><path d="M8 8H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2"/><path d="M12 15V3"/><path d="m8 7 4-4 4 4"/></svg> : un carré avec une flèche vers le haut.</li>
+            <li>Faites défiler, puis touchez <span class="touche">Sur l'écran d'accueil <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Ajouter"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span>.</li>
             <li>Touchez <span class="touche">Ajouter</span>, en haut à droite.</li>
           </ol>
         </div>
         <div id="p-tel-android" hidden>
-          <p style="margin-bottom:14px">Une fenêtre s'ouvre : touchez <span class="touche">Installer</span> ou <span class="touche">Ajouter</span>. Si rien ne s'ouvre, le bouton affiche les gestes à faire :</p>
+          <p style="margin-bottom:14px">Une fenêtre s'ouvre : touchez <span class="touche"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Installer"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Installer</span> ou <span class="touche">Ajouter</span>. Si rien ne s'ouvre, le bouton affiche les gestes à faire :</p>
           <ol class="pas">
-            <li>Touchez le menu <strong>⋮</strong> en haut à droite de Chrome.</li>
-            <li>Touchez <span class="touche">Ajouter à l'écran d'accueil</span> ou <span class="touche">Installer</span>.</li>
+            <li>Touchez le menu <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône menu"><circle cx="12" cy="5" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="19" r="1.6" fill="currentColor"/></svg> (trois points) en haut à droite de Chrome.</li>
+            <li>Touchez <span class="touche">Ajouter à l'écran d'accueil</span> ou <span class="touche"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Installer"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Installer</span>.</li>
             <li>Confirmez avec <span class="touche">Ajouter</span>.</li>
           </ol>
         </div>
