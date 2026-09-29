@@ -199,7 +199,7 @@
   :root[data-theme="dark"] .ouvrir { color: #161812; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ouvrir { color: #161812; } }
 
-  /* Étape 4 — réglages GPS */
+  /* Étape 3 — réglages GPS */
   .reglages { display: grid; gap: 16px; }
   .reglage { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; background: var(--surface); border: 1px solid var(--ligne); border-radius: 22px; padding: 24px; }
   .reglage__num { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--vert-pale); color: var(--vert-fonce); font-family: var(--display); font-weight: 800; font-size: 1.5rem; }
@@ -250,8 +250,8 @@
       <ul class="parcours" aria-label="Les étapes du guide">
         <li><a href="#site"><b>1</b>Ouvrir la plateforme de test</a></li>
         <li><a href="#compte"><b>2</b>Créer votre compte test</a></li>
-        <li><a href="#telephone"><b>3</b>L'installer sur le téléphone</a></li>
-        <li><a href="#gps"><b>4</b>Autoriser le GPS</a></li>
+        <li><a href="#gps"><b>3</b>Autoriser le GPS</a></li>
+        <li><a href="#telephone"><b>4</b>Pour aller plus loin</a></li>
       </ul>
     </div>
     <figure><img src="img/tuile-creer.webp" alt="Une carte de balade avec son parcours et ses points d'intérêt"></figure>
@@ -318,7 +318,7 @@
         <ol class="pas">
           <li>Sur la page d'accueil de la plateforme de test, saisissez votre adresse e-mail, puis cliquez sur <span class="touche">Continuer</span>. La plateforme vous propose de créer un compte.</li>
           <li>Branchez le podomètre, puis cliquez sur <span class="touche">Transférer mes données</span>. Choisissez le podomètre dans la fenêtre qui s'ouvre et patientez environ 5 secondes : le message « Données transférées » confirme la lecture.</li>
-          <li>Remplissez vos informations : prénom, nom, adresse e-mail, un mot de passe d'au moins 8 caractères et le code programme. La date de naissance et le sexe sont facultatifs.</li>
+          <li>Remplissez vos informations : prénom, nom, adresse e-mail, un mot de passe d'au moins 8 caractères et le code programme. La date de naissance et le sexe sont aussi obligatoires ; pour le sexe, vous pouvez répondre « Non précisé ».</li>
           <li>Cliquez sur <span class="touche">Créer mon compte</span>. Vous arrivez sur votre espace, avec « Bonjour » et votre prénom.</li>
         </ol>
       </div>
@@ -348,45 +348,9 @@
     <p class="iphone-non"><strong>Et sur iPhone ?</strong> L'inscription n'y est pas possible : Apple ne permet pas de lire le podomètre. Une fois votre compte créé sur un ordinateur ou un Android, vous pourrez en revanche vous connecter depuis un iPhone, avec votre adresse e-mail et votre mot de passe.</p>
   </section>
 
-  <!-- Étape 3 -->
-  <section id="telephone">
-    <div class="titre-etape"><span class="num" aria-hidden="true">3</span><h2><span class="petit">Étape 3</span>Mettre <span class="insecable">D-marche</span> sur l'écran d'accueil</h2></div>
-    <div class="duo">
-      <div>
-        <p class="intro" style="margin-bottom:18px">Pour retrouver D-marche d'un seul geste, comme une application, ajoutez-le à l'écran d'accueil de votre téléphone. Une fois connecté, touchez le bouton vert <span class="touche">Ajouter à l'écran d'accueil</span>, juste sous « Bonjour ».</p>
-        <div class="choix" role="group" aria-label="Type de téléphone">
-          <button type="button" id="tel-iphone" aria-pressed="true" data-panneau="p-iphone">iPhone ou iPad</button>
-          <button type="button" id="tel-android" aria-pressed="false" data-panneau="p-tel-android">Android</button>
-        </div>
-        <div id="p-iphone">
-          <p style="margin-bottom:14px">Apple n'autorise pas l'installation en un clic : le bouton affiche les trois gestes à faire dans Safari.</p>
-          <ol class="pas">
-            <li>Touchez le bouton <strong>Partager</strong> : un carré avec une flèche vers le haut.</li>
-            <li>Faites défiler, puis touchez <span class="touche">Sur l'écran d'accueil</span>.</li>
-            <li>Touchez <span class="touche">Ajouter</span>, en haut à droite.</li>
-          </ol>
-        </div>
-        <div id="p-tel-android" hidden>
-          <p style="margin-bottom:14px">Une fenêtre s'ouvre : touchez <span class="touche">Installer</span> ou <span class="touche">Ajouter</span>. Si rien ne s'ouvre, le bouton affiche les gestes à faire :</p>
-          <ol class="pas">
-            <li>Touchez le menu <strong>⋮</strong> en haut à droite de Chrome.</li>
-            <li>Touchez <span class="touche">Ajouter à l'écran d'accueil</span> ou <span class="touche">Installer</span>.</li>
-            <li>Confirmez avec <span class="touche">Ajouter</span>.</li>
-          </ol>
-        </div>
-        <div class="icone-dmarche"><img src="img/dmarche-icone-test.webp" alt="" width="52" height="52"><span>L'icône <strong>« D-marche TEST »</strong> apparaît ensuite parmi vos applications. Son bandeau orange la distingue de la future application D-marche définitive.</span></div>
-        <p class="note"><strong>Sur la plateforme de test,</strong> l'icône peut vous redemander le mot de passe commun de l'étape 1 à l'ouverture. <strong>Vous l'aviez installée avant le 29/09, sans bandeau orange ?</strong> Supprimez-la (appui long sur l'icône, puis « Supprimer ») et ajoutez-la à nouveau.</p>
-      </div>
-      <figure class="tel" id="fig-install">
-        <div class="coque"><img id="img-install" src="img/07-installer-iphone.webp" alt="La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un iPhone" loading="lazy"></div>
-        <figcaption id="cap-install">La fenêtre d'aide sur iPhone</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Étape 4 : GPS -->
+  <!-- Étape 3 : GPS -->
   <section id="gps">
-    <div class="titre-etape"><span class="num" aria-hidden="true">4</span><h2><span class="petit">Étape 4 · avant de marcher</span>Autoriser la position GPS</h2></div>
+    <div class="titre-etape"><span class="num" aria-hidden="true">3</span><h2><span class="petit">Étape 3 · avant de marcher</span>Autoriser la position GPS</h2></div>
     <p class="intro">D-cartes trace votre balade avec le GPS du téléphone, en passant par le navigateur (Safari ou Chrome). Trois réglages doivent être faits <strong>une seule fois</strong>, de préférence chez vous, avant la première sortie. Choisissez votre téléphone :</p>
     <div class="choix" role="group" aria-label="Type de téléphone pour le GPS">
       <button type="button" id="gps-btn-iphone" aria-pressed="true" data-panneau="gps-iphone">iPhone (Safari)</button>
@@ -443,6 +407,43 @@
       </div>
     </div>
   </section>
+
+  <!-- Étape 4 : pour aller plus loin -->
+  <section id="telephone">
+    <div class="titre-etape"><span class="num" aria-hidden="true">4</span><h2><span class="petit">Étape 4</span>Pour aller plus loin</h2></div>
+    <div class="duo">
+      <div>
+        <p class="intro" style="margin-bottom:18px">Pour retrouver D-marche d'un seul geste, comme une application, ajoutez-le à l'écran d'accueil de votre téléphone. Une fois connecté, touchez le bouton vert <span class="touche">Ajouter à l'écran d'accueil</span>, juste sous « Bonjour ».</p>
+        <div class="choix" role="group" aria-label="Type de téléphone">
+          <button type="button" id="tel-iphone" aria-pressed="true" data-panneau="p-iphone">iPhone ou iPad</button>
+          <button type="button" id="tel-android" aria-pressed="false" data-panneau="p-tel-android">Android</button>
+        </div>
+        <div id="p-iphone">
+          <p style="margin-bottom:14px">Apple n'autorise pas l'installation en un clic : le bouton affiche les trois gestes à faire dans Safari.</p>
+          <ol class="pas">
+            <li>Touchez le bouton <strong>Partager</strong> : un carré avec une flèche vers le haut.</li>
+            <li>Faites défiler, puis touchez <span class="touche">Sur l'écran d'accueil</span>.</li>
+            <li>Touchez <span class="touche">Ajouter</span>, en haut à droite.</li>
+          </ol>
+        </div>
+        <div id="p-tel-android" hidden>
+          <p style="margin-bottom:14px">Une fenêtre s'ouvre : touchez <span class="touche">Installer</span> ou <span class="touche">Ajouter</span>. Si rien ne s'ouvre, le bouton affiche les gestes à faire :</p>
+          <ol class="pas">
+            <li>Touchez le menu <strong>⋮</strong> en haut à droite de Chrome.</li>
+            <li>Touchez <span class="touche">Ajouter à l'écran d'accueil</span> ou <span class="touche">Installer</span>.</li>
+            <li>Confirmez avec <span class="touche">Ajouter</span>.</li>
+          </ol>
+        </div>
+        <div class="icone-dmarche"><img src="img/dmarche-icone-test.webp" alt="" width="52" height="52"><span>L'icône <strong>« D-marche TEST »</strong> apparaît ensuite parmi vos applications. Son bandeau orange la distingue de la future application D-marche définitive.</span></div>
+        <p class="note"><strong>Sur la plateforme de test,</strong> l'icône peut vous redemander le mot de passe commun de l'étape 1 à l'ouverture. <strong>Vous l'aviez installée avant le 29/09, sans bandeau orange ?</strong> Supprimez-la (appui long sur l'icône, puis « Supprimer ») et ajoutez-la à nouveau.</p>
+      </div>
+      <figure class="tel" id="fig-install">
+        <div class="coque"><img id="img-install" src="img/07-installer-iphone.webp" alt="La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un iPhone" loading="lazy"></div>
+        <figcaption id="cap-install">La fenêtre d'aide sur iPhone</figcaption>
+      </figure>
+    </div>
+  </section>
+
 
   <!-- Missions -->
   <section id="missions">
@@ -509,7 +510,7 @@
       <details><summary>La fenêtre « Connexion requise » revient</summary><p>C'est la protection de la plateforme de test : ressaisissez <span class="code">dmarche</span> et le mot de passe commun.</p></details>
       <details><summary>J'ai oublié mon mot de passe personnel</summary><p>Sur la page de connexion, touchez « Mot de passe oublié ? » : un lien vous est envoyé par e-mail.</p></details>
       <details><summary>« Transférer mes données » ne trouve pas le podomètre</summary><p>Sur ordinateur, utilisez Chrome ou Edge, débranchez puis rebranchez le podomètre et réessayez. Sur Android, vérifiez que l'application D-marche est installée et que l'adaptateur USB-OTG est bien enfoncé.</p></details>
-      <details><summary>Ma position n'apparaît pas, ou le tracé est décalé</summary><p>Vérifiez les trois réglages de l'<a href="#gps">étape 4</a>, puis marchez quelques instants à découvert : le GPS est moins précis entre des immeubles ou sous les arbres. Signalez-le quand même dans le groupe, avec le lieu.</p></details>
+      <details><summary>Ma position n'apparaît pas, ou le tracé est décalé</summary><p>Vérifiez les trois réglages de l'<a href="#gps">étape 3</a>, puis marchez quelques instants à découvert : le GPS est moins précis entre des immeubles ou sous les arbres. Signalez-le quand même dans le groupe, avec le lieu.</p></details>
       <details><summary>Une page reste bloquée</summary><p>Fermez-la, rouvrez la plateforme, puis dites-nous ce que vous faisiez juste avant.</p></details>
       <details><summary>Une autre question ?</summary><p>Écrivez dans le groupe WhatsApp : Frédérick y répond.</p></details>
     </div>
@@ -523,7 +524,7 @@
 
 <script>
   // Sélecteurs d'appareil : un seul panneau visible par groupe ; le choix « iPhone / Android »
-  // change aussi la capture d'écran de l'étape 3.
+  // change aussi la capture d'écran de l'étape 4.
   const CAPTURES = {
     "p-iphone": ["img/07-installer-iphone.webp", "La fenêtre d'aide sur iPhone", "La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un iPhone"],
     "p-tel-android": ["img/06-installer-android.webp", "La fenêtre d'aide sur Android", "La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un téléphone Android"],
