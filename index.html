@@ -191,6 +191,22 @@
   .ouvrir:hover { filter: brightness(1.08); }
   :root[data-theme="dark"] .ouvrir { color: #161812; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ouvrir { color: #161812; } }
+
+  /* Étape 4 — réglages GPS */
+  .reglages { display: grid; gap: 16px; }
+  .reglage { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 20px; background: var(--surface); border: 1px solid var(--ligne); border-radius: 22px; padding: 24px; }
+  .reglage__num { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--vert-pale); color: var(--vert-fonce); font-family: var(--display); font-weight: 800; font-size: 1.5rem; }
+  .reglage__corps { display: grid; gap: 10px; }
+  .reglage h3 { font-size: 1.35rem; font-weight: 800; }
+  .chemin { background: var(--beige-doux); border-radius: 12px; padding: 12px 16px; font-size: 1rem; }
+  .sinon { border-left: 4px solid #c15551; padding: 4px 0 4px 14px; font-size: 1rem; }
+  .sinon strong:first-child { color: #a8423e; }
+  :root[data-theme="dark"] .sinon strong:first-child { color: #f19a95; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sinon strong:first-child { color: #f19a95; } }
+  .pendant { margin-top: 22px; background: var(--bleu-pale); border-radius: 22px; padding: 24px 26px; }
+  .pendant h3 { font-size: 1.35rem; font-weight: 800; color: var(--bleu); margin-bottom: 12px; }
+  .pendant__grille { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; font-size: 1rem; }
+  @media (max-width: 820px) { .pendant__grille { grid-template-columns: 1fr; } .reglage { grid-template-columns: 1fr; } }
   [hidden] { display: none !important; }
 
   @media (max-width: 820px) {
@@ -228,6 +244,7 @@
         <li><a href="#site"><b>1</b>Ouvrir la plateforme de test</a></li>
         <li><a href="#compte"><b>2</b>Créer votre compte</a></li>
         <li><a href="#telephone"><b>3</b>L'installer sur le téléphone</a></li>
+        <li><a href="#gps"><b>4</b>Autoriser le GPS</a></li>
       </ul>
     </div>
     <figure><img src="img/tuile-creer.webp" alt="Une carte de balade avec son parcours et ses points d'intérêt"></figure>
@@ -355,6 +372,66 @@
     </div>
   </section>
 
+  <!-- Étape 4 : GPS -->
+  <section id="gps">
+    <div class="titre-etape"><span class="num" aria-hidden="true">4</span><h2><span class="petit">Étape 4 · avant de marcher</span>Autoriser la position GPS</h2></div>
+    <p class="intro">D-cartes trace votre balade avec le GPS du téléphone, en passant par le navigateur (Safari ou Chrome). Trois réglages doivent être faits <strong>une seule fois</strong>, de préférence chez vous, avant la première sortie. Choisissez votre téléphone :</p>
+    <div class="choix" role="group" aria-label="Type de téléphone pour le GPS">
+      <button type="button" id="gps-btn-iphone" aria-pressed="true" data-panneau="gps-iphone">iPhone (Safari)</button>
+      <button type="button" id="gps-btn-android" aria-pressed="false" data-panneau="gps-android">Android (Chrome)</button>
+    </div>
+
+    <div class="reglages">
+      <article class="reglage">
+        <p class="reglage__num">1</p>
+        <div class="reglage__corps">
+          <h3>Accepter quand le site demande votre position</h3>
+          <p>Au démarrage d'un repérage, le navigateur affiche une question du type « recette.dmarche.org souhaite connaître votre position ». Répondez <span class="touche">Autoriser</span>.</p>
+          <div id="gps-iphone">
+            <p class="chemin"><strong>Si vous avez refusé par erreur :</strong> Réglages → Safari → Position → <em>Demander</em> ou <em>Autoriser</em>, puis rechargez la page.</p>
+          </div>
+          <div id="gps-android" hidden>
+            <p class="chemin"><strong>Si vous avez refusé par erreur :</strong> touchez le cadenas ou le ⓘ à gauche de l'adresse → Autorisations → Position → <em>Autoriser</em>, puis rechargez la page.</p>
+          </div>
+          <p class="sinon"><strong>Sinon :</strong> D-cartes affiche « Localisation refusée ». La carte ne vous suit pas et <strong>aucun tracé n'est enregistré</strong>.</p>
+        </div>
+      </article>
+
+      <article class="reglage">
+        <p class="reglage__num">2</p>
+        <div class="reglage__corps">
+          <h3>Activer la position « précise »</h3>
+          <p>Les téléphones récents peuvent ne donner qu'une position approximative. Pour tracer un chemin, il faut la position précise.</p>
+          <div data-gps="iphone">
+            <p class="chemin">Réglages → Confidentialité et sécurité → Service de localisation → <em>activé</em>. Dans la même liste : Safari → <em>Lorsque l'app est active</em>, et activer <em>Position exacte</em>.</p>
+          </div>
+          <div data-gps="android" hidden>
+            <p class="chemin">Réglages → Applications → Chrome → Autorisations → Position → activer <em>Utiliser la position exacte</em>. Puis Réglages → Localisation → Services de localisation → <em>Précision de la localisation Google</em> → activé.</p>
+          </div>
+          <p class="sinon"><strong>Sinon :</strong> la position peut être fausse de plusieurs centaines de mètres. D-cartes ne garde que les points précis à moins de 50 m près : <strong>le tracé ne démarre pas</strong>, et le message « Position approximative » s'affiche.</p>
+        </div>
+      </article>
+
+      <article class="reglage">
+        <p class="reglage__num">3</p>
+        <div class="reglage__corps">
+          <h3>Laisser la localisation du téléphone allumée</h3>
+          <p>C'est l'interrupteur général « Localisation » (ou « Service de localisation »), dans le volet de réglages rapides ou dans les Réglages.</p>
+          <p class="sinon"><strong>Sinon :</strong> aucun site ni aucune application ne reçoit de position. D-cartes affiche « Aucune position GPS » au bout de quelques secondes.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="pendant">
+      <h3>Pendant la marche</h3>
+      <div class="pendant__grille">
+        <div><strong>Gardez D-cartes à l'écran.</strong> Si vous passez sur une autre application ou si l'écran s'éteint, le téléphone met la page en pause : le GPS et le chrono s'arrêtent. Au retour, D-cartes vous prévient que l'enregistrement s'est interrompu, mais le chemin parcouru entre-temps est perdu (il apparaît en ligne droite).</div>
+        <div><strong>Pour économiser la batterie,</strong> touchez le bouton <span class="touche">veille écran</span> : l'écran devient noir mais l'enregistrement continue. Touchez l'écran pour revoir la carte.</div>
+        <div><strong>Au départ, patientez à l'air libre</strong> quelques secondes : le GPS a besoin de voir le ciel. Il est moins précis entre de hauts immeubles, sous un couvert épais ou à l'intérieur.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Missions -->
   <section id="missions">
     <div class="titre-etape"><h2><span class="petit">Et maintenant</span>Ce que nous vous demandons de tester</h2></div>
@@ -420,7 +497,7 @@
       <details><summary>La fenêtre « Connexion requise » revient</summary><p>C'est la protection du site de test : ressaisissez <span class="code">dmarche</span> et le mot de passe commun.</p></details>
       <details><summary>J'ai oublié mon mot de passe personnel</summary><p>Sur la page de connexion, touchez « Mot de passe oublié ? » : un lien vous est envoyé par e-mail.</p></details>
       <details><summary>« Transférer mes données » ne trouve pas le podomètre</summary><p>Sur ordinateur, utilisez Chrome ou Edge, débranchez puis rebranchez le podomètre et réessayez. Sur Android, vérifiez que l'application D-marche est installée et que le câble USB-OTG est bien enfoncé.</p></details>
-      <details><summary>Ma position n'apparaît pas, ou le tracé est décalé</summary><p>Acceptez la demande d'accès à la position quand le téléphone la pose, et marchez quelques instants à découvert : le GPS est moins précis entre des immeubles ou sous les arbres. Signalez-le quand même dans le groupe, avec le lieu.</p></details>
+      <details><summary>Ma position n'apparaît pas, ou le tracé est décalé</summary><p>Vérifiez les trois réglages de l'<a href="#gps">étape 4</a>, puis marchez quelques instants à découvert : le GPS est moins précis entre des immeubles ou sous les arbres. Signalez-le quand même dans le groupe, avec le lieu.</p></details>
       <details><summary>Une page reste bloquée</summary><p>Fermez-la, rouvrez le site, puis dites-nous ce que vous faisiez juste avant.</p></details>
       <details><summary>Une autre question ?</summary><p>Écrivez dans le groupe WhatsApp : Frédérick y répond.</p></details>
     </div>
@@ -448,6 +525,7 @@
         const p = document.getElementById(x.dataset.panneau);
         if (p) p.hidden = !actif;
       });
+      if (b.id.startsWith("gps-btn-")) { const t = b.id.slice(8); document.querySelectorAll("[data-gps]").forEach((e) => { e.hidden = e.dataset.gps !== t; }); }
       const c = CAPTURES[b.dataset.panneau];
       if (c) {
         const img = document.getElementById("img-install");
