@@ -253,7 +253,6 @@
         <li><a href="#site"><b>1</b>Ouvrir la plateforme de test</a></li>
         <li><a href="#compte"><b>2</b>Créer votre compte test</a></li>
         <li><a href="#gps"><b>3</b>Autoriser le GPS</a></li>
-        <li><a href="#telephone"><b>4</b>Pour aller plus loin</a></li>
       </ul>
     </div>
     <figure><img src="img/tuile-creer.webp" alt="Une carte de balade avec son parcours et ses points d'intérêt"></figure>
@@ -410,42 +409,6 @@
     </div>
   </section>
 
-  <!-- Étape 4 : pour aller plus loin -->
-  <section id="telephone">
-    <div class="titre-etape"><span class="num" aria-hidden="true">4</span><h2><span class="petit">Étape 4</span>Pour aller plus loin</h2></div>
-    <div class="duo">
-      <div>
-        <p class="intro" style="margin-bottom:18px">Pour retrouver D-marche d'un seul geste, comme une application, ajoutez-le à l'écran d'accueil de votre téléphone. Une fois connecté, touchez le bouton vert <span class="touche">Ajouter à l'écran d'accueil</span>, juste sous « Bonjour ».</p>
-        <div class="choix" role="group" aria-label="Type de téléphone">
-          <button type="button" id="tel-iphone" aria-pressed="true" data-panneau="p-iphone">iPhone ou iPad</button>
-          <button type="button" id="tel-android" aria-pressed="false" data-panneau="p-tel-android">Android</button>
-        </div>
-        <div id="p-iphone">
-          <p style="margin-bottom:14px">Apple n'autorise pas l'installation en un clic : le bouton affiche les trois gestes à faire dans Safari.</p>
-          <ol class="pas">
-            <li>Touchez le bouton <strong>Partager</strong> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Partager"><path d="M8 8H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2"/><path d="M12 15V3"/><path d="m8 7 4-4 4 4"/></svg> : un carré avec une flèche vers le haut.</li>
-            <li>Faites défiler, puis touchez <span class="touche">Sur l'écran d'accueil <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Ajouter"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span>.</li>
-            <li>Touchez <span class="touche">Ajouter</span>, en haut à droite.</li>
-          </ol>
-        </div>
-        <div id="p-tel-android" hidden>
-          <p style="margin-bottom:14px">Une fenêtre s'ouvre : touchez <span class="touche"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Installer"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Installer</span> ou <span class="touche">Ajouter</span>. Si rien ne s'ouvre, le bouton affiche les gestes à faire :</p>
-          <ol class="pas">
-            <li>Touchez le menu <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône menu"><circle cx="12" cy="5" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="19" r="1.6" fill="currentColor"/></svg> (trois points) en haut à droite de Chrome.</li>
-            <li>Touchez <span class="touche">Ajouter à l'écran d'accueil</span> ou <span class="touche"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Installer"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Installer</span>.</li>
-            <li>Confirmez avec <span class="touche">Ajouter</span>.</li>
-          </ol>
-        </div>
-        <div class="icone-dmarche"><img src="img/dmarche-icone-test.webp" alt="" width="52" height="52"><span>L'icône <strong>« D-marche TEST »</strong> apparaît ensuite parmi vos applications. Son bandeau orange la distingue de la future application D-marche définitive.</span></div>
-        <p class="note"><strong>Sur la plateforme de test,</strong> l'icône peut vous redemander le mot de passe commun de l'étape 1 à l'ouverture. <strong>Vous l'aviez installée avant le 29/09, sans bandeau orange ?</strong> Supprimez-la (appui long sur l'icône, puis « Supprimer ») et ajoutez-la à nouveau.</p>
-      </div>
-      <figure class="tel" id="fig-install">
-        <div class="coque"><img id="img-install" src="img/07-installer-iphone.webp" alt="La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un iPhone" loading="lazy"></div>
-        <figcaption id="cap-install">La fenêtre d'aide sur iPhone</figcaption>
-      </figure>
-    </div>
-  </section>
-
 
   <!-- Missions -->
   <section id="missions">
@@ -515,6 +478,42 @@
       <details><summary>Ma position n'apparaît pas, ou le tracé est décalé</summary><p>Vérifiez les trois réglages de l'<a href="#gps">étape 3</a>, puis marchez quelques instants à découvert : le GPS est moins précis entre des immeubles ou sous les arbres. Signalez-le quand même dans le groupe, avec le lieu.</p></details>
       <details><summary>Une page reste bloquée</summary><p>Fermez-la, rouvrez la plateforme, puis dites-nous ce que vous faisiez juste avant.</p></details>
       <details><summary>Une autre question ?</summary><p>Écrivez dans le groupe WhatsApp : Frédérick y répond.</p></details>
+    </div>
+  </section>
+
+  <!-- Pour aller plus loin (facultatif, en fin de guide) -->
+  <section id="telephone">
+    <div class="titre-etape"><h2><span class="petit">Facultatif</span>Pour aller plus loin</h2></div>
+    <div class="duo">
+      <div>
+        <p class="intro" style="margin-bottom:18px">Pour retrouver D-marche d'un seul geste, comme une application, ajoutez-le à l'écran d'accueil de votre téléphone. Une fois connecté, touchez le bouton vert <span class="touche">Ajouter à l'écran d'accueil</span>, juste sous « Bonjour ».</p>
+        <div class="choix" role="group" aria-label="Type de téléphone">
+          <button type="button" id="tel-iphone" aria-pressed="true" data-panneau="p-iphone">iPhone ou iPad</button>
+          <button type="button" id="tel-android" aria-pressed="false" data-panneau="p-tel-android">Android</button>
+        </div>
+        <div id="p-iphone">
+          <p style="margin-bottom:14px">Apple n'autorise pas l'installation en un clic : le bouton affiche les trois gestes à faire dans Safari.</p>
+          <ol class="pas">
+            <li>Touchez le bouton <strong>Partager</strong> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Partager"><path d="M8 8H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2"/><path d="M12 15V3"/><path d="m8 7 4-4 4 4"/></svg> : un carré avec une flèche vers le haut.</li>
+            <li>Faites défiler, puis touchez <span class="touche">Sur l'écran d'accueil <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Ajouter"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span>.</li>
+            <li>Touchez <span class="touche">Ajouter</span>, en haut à droite.</li>
+          </ol>
+        </div>
+        <div id="p-tel-android" hidden>
+          <p style="margin-bottom:14px">Une fenêtre s'ouvre : touchez <span class="touche"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Installer"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Installer</span> ou <span class="touche">Ajouter</span>. Si rien ne s'ouvre, le bouton affiche les gestes à faire :</p>
+          <ol class="pas">
+            <li>Touchez le menu <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône menu"><circle cx="12" cy="5" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="19" r="1.6" fill="currentColor"/></svg> (trois points) en haut à droite de Chrome.</li>
+            <li>Touchez <span class="touche">Ajouter à l'écran d'accueil</span> ou <span class="touche"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="icône Installer"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Installer</span>.</li>
+            <li>Confirmez avec <span class="touche">Ajouter</span>.</li>
+          </ol>
+        </div>
+        <div class="icone-dmarche"><img src="img/dmarche-icone-test.webp" alt="" width="52" height="52"><span>L'icône <strong>« D-marche TEST »</strong> apparaît ensuite parmi vos applications. Son bandeau orange la distingue de la future application D-marche définitive.</span></div>
+        <p class="note"><strong>Sur la plateforme de test,</strong> l'icône peut vous redemander le mot de passe commun de l'étape 1 à l'ouverture. <strong>Vous l'aviez installée avant le 29/09, sans bandeau orange ?</strong> Supprimez-la (appui long sur l'icône, puis « Supprimer ») et ajoutez-la à nouveau.</p>
+      </div>
+      <figure class="tel" id="fig-install">
+        <div class="coque"><img id="img-install" src="img/07-installer-iphone.webp" alt="La fenêtre qui explique comment ajouter D-marche à l'écran d'accueil d'un iPhone" loading="lazy"></div>
+        <figcaption id="cap-install">La fenêtre d'aide sur iPhone</figcaption>
+      </figure>
     </div>
   </section>
 
