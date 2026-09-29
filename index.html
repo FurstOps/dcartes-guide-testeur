@@ -116,6 +116,13 @@
   ol.pas > li { counter-increment: pas; position: relative; padding-left: 48px; }
   ol.pas > li::before { content: counter(pas); position: absolute; left: 0; top: 1px; width: 32px; height: 32px; border-radius: 50%; background: var(--vert-pale); color: var(--vert-fonce); font-weight: 700; display: grid; place-items: center; font-size: .95rem; }
   ol.pas ul { margin: 8px 0 0; padding-left: 20px; }
+  .navs { margin-top: 18px; max-width: 36em; display: grid; gap: 10px; }
+  .navs h3 { font-size: 1.1rem; margin-bottom: 2px; }
+  .navs .nav { background: var(--surface); border: 1px solid var(--ligne); border-radius: 14px; padding: 12px 16px; font-size: 1rem; }
+  .navs .nav b { display: block; margin-bottom: 4px; }
+  .navs .ok, .navs .ko { display: block; }
+  .navs .ok::before { content: "✓ "; color: var(--vert-fonce); font-weight: 800; }
+  .navs .ko::before { content: "✗ "; color: var(--orange-texte); font-weight: 800; }
   .note { margin-top: 18px; padding: 14px 18px; border-radius: 14px; background: var(--bleu-pale); color: var(--encre); font-size: 1rem; max-width: 36em; }
   .note strong { color: var(--bleu); }
   .touche { display: inline-block; font-weight: 700; padding: 0 8px; border-radius: 8px; background: var(--beige-doux); border: 1px solid var(--ligne); white-space: nowrap; }
@@ -265,7 +272,7 @@
     <div class="duo">
       <div>
         <ol class="pas">
-          <li>Sur votre téléphone ou votre ordinateur, ouvrez votre navigateur habituel (Chrome, Safari, Edge…).</li>
+          <li>Sur votre téléphone ou votre ordinateur, ouvrez votre navigateur (voir <a href="#navigateurs">quel navigateur utiliser</a> ci-dessous).</li>
           <li>Touchez l'adresse <a class="code lien" href="https://recette.dmarche.org" target="_blank" rel="noopener">recette.dmarche.org</a>, ou tapez-la dans la barre du haut du navigateur.</li>
           <li>Une petite fenêtre <strong>« Connexion requise »</strong> s'ouvre. Ce n'est pas encore votre compte : c'est la protection du site de test.
             <ul>
@@ -277,6 +284,12 @@
         </ol>
         <a class="ouvrir" href="https://recette.dmarche.org" target="_blank" rel="noopener">Ouvrir la plateforme de test<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
         <p class="note"><strong>Bon à savoir :</strong> cette fenêtre peut revenir de temps en temps, par exemple après avoir fermé le navigateur. Il suffit de ressaisir les mêmes informations.</p>
+        <div class="navs" id="navigateurs">
+          <h3>Quel navigateur utiliser ?</h3>
+          <div class="nav"><b>Sur un ordinateur</b><span class="ok">Chrome ou Edge : tout fonctionne, y compris la création du compte.</span><span class="ko">Safari et Firefox : ils ne savent pas lire le podomètre, la création du compte est impossible. Utilisez Chrome ou Edge.</span></div>
+          <div class="nav"><b>Sur un téléphone ou une tablette Android</b><span class="ok">Chrome : tout fonctionne, y compris la création du compte (avec l'appli D-marche et le câble USB-OTG).</span><span class="ko">Firefox, Samsung Internet et les autres : non testés. Préférez Chrome.</span></div>
+          <div class="nav"><b>Sur un iPhone ou un iPad</b><span class="ok">Safari : connexion, balades, GPS et icône sur l'écran d'accueil fonctionnent.</span><span class="ko">Création du compte impossible, quel que soit le navigateur : Apple ne permet pas de lire le podomètre. Créez votre compte sur un ordinateur ou un Android.</span></div>
+        </div>
       </div>
       <div class="fenetre" aria-label="Illustration de la fenêtre Connexion requise">
         <p class="t">Connexion requise</p>
