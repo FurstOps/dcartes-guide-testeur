@@ -123,6 +123,9 @@
   .navs .ok, .navs .ko { display: block; }
   .navs .ok::before { content: "✓ "; color: var(--vert-fonce); font-weight: 800; }
   .navs .ko::before { content: "✗ "; color: var(--orange-texte); font-weight: 800; }
+  .capsule { margin: 22px 0 0; max-width: 34em; }
+  .capsule img { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--ligne); display: block; }
+  .capsule figcaption { margin-top: 8px; font-size: .92rem; color: var(--texte-2); }
   .note { margin-top: 18px; padding: 14px 18px; border-radius: 14px; background: var(--bleu-pale); color: var(--encre); font-size: 1rem; max-width: 36em; }
   .note strong { color: var(--bleu); }
   .ico { display: inline-block; width: 1.15em; height: 1.15em; vertical-align: -0.2em; margin: 0 .1em; }
@@ -318,10 +321,14 @@
         <p style="margin-bottom:16px">Avec le <strong>câble USB</strong> du podomètre, dans <strong>Chrome ou Edge</strong> (attention : Safari et Firefox ne savent pas lire le podomètre, ni pour créer le compte ni, plus tard, pour transférer vos pas).</p>
         <ol class="pas">
           <li>Sur la page d'accueil de la plateforme de test, saisissez votre adresse e-mail, puis cliquez sur <span class="touche">Continuer</span>. La plateforme vous propose de créer un compte.</li>
-          <li>Branchez le podomètre, puis cliquez sur <span class="touche">Transférer mes données</span>. Choisissez le podomètre dans la fenêtre qui s'ouvre et patientez environ 5 secondes : le message « Données transférées » confirme la lecture.</li>
+          <li>Branchez le podomètre, puis cliquez sur <span class="touche">Transférer mes données</span>. Une petite fenêtre s'ouvre en haut de l'écran : <strong>cliquez sur le nom du podomètre</strong> dans la liste (la ligne devient bleue), puis sur <span class="touche">Connexion</span>. Patientez environ 5 secondes : le message « Données transférées » confirme la lecture.</li>
           <li>Remplissez vos informations : prénom, nom, adresse e-mail, un mot de passe d'au moins 8 caractères et le code programme. La date de naissance et le sexe sont aussi obligatoires ; pour le sexe, vous pouvez répondre « Non précisé ».</li>
           <li>Cliquez sur <span class="touche">Créer mon compte</span>. Vous arrivez sur votre espace, avec « Bonjour » et votre prénom.</li>
         </ol>
+        <figure class="capsule">
+          <img src="img/capsule-podometre-ordinateur.gif" alt="Animation en six temps : brancher le podomètre, cliquer sur Transférer mes données, cliquer sur le nom du podomètre dans la petite fenêtre, cliquer sur Connexion, patienter, puis lire le message Données transférées" width="820" height="640" loading="lazy">
+          <figcaption>La lecture du podomètre, geste par geste. La petite fenêtre est redessinée : son aspect exact dépend de votre navigateur.</figcaption>
+        </figure>
       </div>
       <figure class="ordi">
         <div class="ecran"><img src="img/03-inscription-ordinateur.webp" alt="La page Créer un compte sur ordinateur, avec le bouton Transférer mes données" loading="lazy"></div>
