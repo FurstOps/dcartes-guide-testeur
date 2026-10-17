@@ -1,12 +1,10 @@
-# Guide du testeur D-cartes — vague 1
+# Guide du testeur D-cartes — page de renvoi
 
-Page d'accueil des correspondants qui testent D-cartes, l'outil de cartographie des balades
-du programme D-marche® (ADAL) : accès au site de test, création du compte (ordinateur ou
-Android), installation sur le téléphone, missions de test et envoi des retours.
+Depuis le 16/10/2026, le guide du testeur est intégré à la plateforme de test et s'adapte au
+compte du lecteur (D-cartes, iD-marche, modérateur) : https://recette.dmarche.org/Guide
 
-- En ligne : https://furstops.github.io/dcartes-guide-testeur/
-- Page statique : `index.html` + `img/` (captures d'écran du site de test, logos D-marche et D-cartes).
-- La page demande aux moteurs de recherche de ne pas l'indexer (`noindex`).
-- Le mot de passe du site de test n'y figure pas : il est transmis à part à chaque testeur.
+Cette page (https://furstops.github.io/dcartes-guide-testeur/) ne fait plus que renvoyer vers
+lui, en gardant l'ancre éventuelle (#gps, #compte…). Source du guide : dépôt `dcartes-next`,
+`web/dcartes/guide/`.
 
 D-marche® est une marque de l'ADAL. Guide réalisé par Furst Ops pour l'ADAL.
